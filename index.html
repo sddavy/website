@@ -166,9 +166,9 @@
       font-size: 17px;
     }
     .about-panel {
-      padding: 10px 0 12px 27px;
+      padding: 10px 0 10px 65px;
       border-left: 1px solid var(--line);
-      margin-left: 3px;
+      margin-left: -15px;
     }
     .about-panel h2 {
       margin: 0 0 13px;
@@ -278,6 +278,91 @@
       color: var(--accent);
       filter: drop-shadow(0 1px 3px rgba(0,0,0,.5));
     }
+
+.explore-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 220px;
+
+    min-width: 165px;
+    padding: 13px 18px;
+    margin-top: 12px;
+
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    background: #0B0D10;
+    border: 1px solid #454B52;
+    border-radius: 0;
+
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+
+    transition:
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.explore-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: #454B52;
+    transform: translateX(-101%);
+    transition: transform 0.35s cubic-bezier(0.7, 0, 0.35, 1);
+
+    z-index: -1;
+}
+
+
+.explore-btn .explore-label,
+.explore-btn .explore-arrow {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+}
+
+
+.explore-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+
+.explore-btn:hover::before {
+    transform: translateX(0);
+}
+
+.explore-btn:hover {
+    border-color: #737B84;
+    text-decoration: none;
+}
+
+
+.explore-btn:hover .explore-arrow {
+    transform: translateX(6px);
+}
+
+
+.explore-btn:visited,
+.explore-btn:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+.explore-btn:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
     .category-card h2 {
       margin: 0 0 7px;
       color: var(--accent);
@@ -434,20 +519,43 @@
     </nav>
   </header>
 
-  <main>
+<main>
     <section class="hero" aria-labelledby="page-title">
-      <div class="hero-main">
-        <p class="eyebrow">Hello, I'm</p>
-        <h1 id="page-title">Samuel Davy</h1>
-        <p class="roles">PHOTOGRAPHER&nbsp; / &nbsp;VIDEOGRAPHER&nbsp; / &nbsp;ENGINEER&nbsp; / &nbsp;CREATOR</p>
-        <p class="intro">I build, capture, and create — from cameras and custom projects to light shows and robotics. Welcome to my corner of the internet.</p>
-      </div>
-      <aside class="about-panel" id="about">
-        <h2>// ABOUT THIS SITE</h2>
-        <p>This is a collection of my work, projects, and passions. Explore the different sections to see what I'm working on, what I've created, and what inspires me.</p>
-        <a class="text-link" href="#categories">Explore <span aria-hidden="true">⟶</span></a>
-      </aside>
+
+        <div class="hero-main">
+            <p class="eyebrow">Hello, I'm</p>
+
+            <h1 id="page-title">Samuel Davy</h1>
+
+            <p class="roles">
+                PHOTOGRAPHER&nbsp; / &nbsp;VIDEOGRAPHER&nbsp; /
+                &nbsp;ENGINEER&nbsp; / &nbsp;CREATOR
+            </p>
+
+            <p class="intro">
+                I build, capture, and create — from flight simulation
+                to competitive robotics to event photography.
+                Welcome to my corner of the internet.
+            </p>
+        </div>
+
+        <aside class="about-panel" id="about">
+            <h2>// ABOUT THIS SITE</h2>
+
+            <p>
+                This is a collection of my work, projects, and passions.
+                Explore the different sections to see what I'm working on,
+                what I've created, and what inspires me.
+            </p>
+
+          <a href="#categories" class="explore-btn">
+           <span class="explore-label">EXPLORE</span>
+           <span class="explore-arrow" aria-hidden="true">→</span>
+          </a>
+        </aside>
+
     </section>
+</main>
 
     <section class="category-grid" id="categories" aria-label="Portfolio categories">
       <a class="category-card photography" href="#featured">

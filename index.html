@@ -527,32 +527,5 @@
   </script>
 </body>
 </html>
-'''
 
-(root / "index.html").write_text(html, encoding="utf-8")
-readme = """# Samuel Davy — Portfolio Homepage
-
-A static HTML/CSS homepage designed for GitHub + Cloudflare Pages.
-
-## Preview locally
-Open `index.html` in a browser. The Google Fonts and Unsplash sample images need an internet connection.
-
-## Deploy to Cloudflare Pages
-1. Push this folder's contents to a GitHub repository.
-2. In Cloudflare, go to Workers & Pages → Create → Pages → Connect to Git.
-3. Select the repository.
-4. For a plain HTML site, leave the build command empty and set the build output directory to `/` (or the repository root, depending on the dashboard's wording).
-5. Deploy. Cloudflare will provide a `*.pages.dev` address.
-
-The navigation links are intentionally placeholders and currently jump to sections on this homepage.
-"""
-(root / "README.md").write_text(readme, encoding="utf-8")
-
-zip_path = Path("/mnt/data/samuel-davy-homepage.zip")
-with ZipFile(zip_path, "w", ZIP_DEFLATED) as z:
-    z.write(root / "index.html", "samuel-davy-site/index.html")
-    z.write(root / "README.md", "samuel-davy-site/README.md")
-
-print(f"Created {root / 'index.html'}")
-print(f"Created {zip_path}")
 

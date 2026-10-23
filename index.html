@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0d10">
   <meta name="description" content="The personal portfolio of Samuel Davy — photography, videography, engineering, robotics, and creative projects.">
-  <title>Samuel Davy — Portfolio</title>
+  <title>Samuel Davy — Photographer, Videographer, Engineer, and Creator</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,7 +74,7 @@
       white-space: nowrap;
     }
     .brand-mark {
-      width: 18px;
+      width: 17px;
       height: 18px;
       border: 2px solid var(--white);
       position: relative;
@@ -166,7 +166,7 @@
       font-size: 17px;
     }
     .about-panel {
-      padding: 10px 0 10px 65px;
+      padding: 10px 0 10px 35px;
       border-left: 1px solid var(--line);
       margin-left: -15px;
     }
@@ -279,90 +279,90 @@
       filter: drop-shadow(0 1px 3px rgba(0,0,0,.5));
     }
 
-.explore-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 220px;
+    .explore-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 220px;
 
-    min-width: 165px;
-    padding: 13px 18px;
-    margin-top: 12px;
-
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-
-    background: #0B0D10;
-    border: 1px solid #454B52;
-    border-radius: 0;
-
-    color: #ffffff;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-decoration: none;
-
-    transition:
-        border-color 0.3s ease,
-        transform 0.3s ease;
-}
-
-
-.explore-btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: #454B52;
-    transform: translateX(-101%);
-    transition: transform 0.35s cubic-bezier(0.7, 0, 0.35, 1);
-
-    z-index: -1;
-}
+      min-width: 165px;
+      padding: 13px 18px;
+      margin-top: 12px;
+  
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+  
+      background: #0B0D10;
+      border: 1px solid #454B52;
+      border-radius: 0;
+  
+      color: #ffffff;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-decoration: none;
+  
+      transition:
+          border-color 0.3s ease,
+          transform 0.3s ease;
+    }
 
 
-.explore-btn .explore-label,
-.explore-btn .explore-arrow {
-    position: relative;
-    z-index: 1;
-    color: #ffffff;
-}
+    .explore-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background: #454B52;
+      transform: translateX(-101%);
+      transition: transform 0.35s cubic-bezier(0.7, 0, 0.35, 1);
+
+      z-index: -1;
+    }
+  
+
+    .explore-btn .explore-label,
+    .explore-btn .explore-arrow {
+      position: relative;
+      z-index: 1;
+      color: #ffffff;
+    }
 
 
-.explore-arrow {
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
+    .explore-arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
 
 
-.explore-btn:hover::before {
-    transform: translateX(0);
-}
+    .explore-btn:hover::before {
+      transform: translateX(0);
+    }
 
-.explore-btn:hover {
-    border-color: #737B84;
-    text-decoration: none;
-}
-
-
-.explore-btn:hover .explore-arrow {
-    transform: translateX(6px);
-}
+    .explore-btn:hover {
+      border-color: #737B84;
+      text-decoration: none;
+    }
 
 
-.explore-btn:visited,
-.explore-btn:active {
-    color: #ffffff;
-    text-decoration: none;
-}
+    .explore-btn:hover .explore-arrow {
+      transform: translateX(6px);
+    }
 
 
-.explore-btn:focus-visible {
-    outline: 2px solid #ffffff;
-    outline-offset: 4px;
-}
+    .explore-btn:visited,
+    .explore-btn:active {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+
+    .explore-btn:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 4px;
+    }
     .category-card h2 {
       margin: 0 0 7px;
       color: var(--accent);
@@ -386,14 +386,14 @@
     .featured {
       display: grid;
       grid-template-columns: minmax(230px, .95fr) minmax(0, 2.8fr);
-      gap: clamp(30px, 4vw, 64px);
-      padding: 31px 0 46px;
+      gap: clamp(30px, 47vw, 64px);
+      padding: 20px 0 20px;
       border-top: 1px solid var(--line);
     }
     .section-kicker {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 15px;
       margin: 0 0 6px;
       color: #c8d0d8;
       font: 500 12px var(--mono);
@@ -410,6 +410,11 @@
       max-width: 310px;
       color: #aeb8c2;
       font: 400 12px/1.9 var(--mono);
+    }
+    .featured,
+    .recent-work {
+      padding-left: 40px;
+      padding-right: 40px;
     }
     .outline-link {
       display: inline-flex;

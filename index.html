@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -139,11 +139,40 @@
       white-space: nowrap;
       transition: background .18s ease, color .18s ease;
     }
-    .nav-link:hover { background: rgba(255,255,255,.045); color: var(--white); }
+  
     .photography { --accent: var(--blue); }
     .videography { --accent: var(--purple); }
     .projects { --accent: var(--orange); }
     .about { --accent: var(--muted); }
+
+/* Navigation tab fill animation */
+.nav-link {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transition: color 0.25s ease;
+}
+
+/* Colored fill starts below the tab */
+.nav-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: translateY(101%);
+    transition: transform 0.35s cubic-bezier(0.7, 0, 0.35, 1);
+    z-index: -1;
+}
+
+/* Fill rises from the bottom on hover */
+.nav-link:hover::before {
+    transform: translateY(0);
+}
+
+/* Keep the text readable over the fill */
+.nav-link:hover {
+    color: var(--black);
+}
 
     main { max-width: 1600px; margin: 0 auto; padding: 0 4.1%; }
     .hero {
@@ -214,6 +243,7 @@
       grid-template-columns: repeat(7, minmax(0, 1fr));
       gap: 20px;
       margin: 0 0 54px;
+      padding: 0 40px;
     }
     .category-card {
       --accent: var(--muted);
@@ -483,7 +513,217 @@
     }
     .site-footer:hover { color: var(--white); }
     .site-footer .back-top { color: #9ca7b2; }
+/* =================================
+   DISCIPLINE STATISTICS
+================================= */
 
+.discipline-stats {
+    --discipline-accent: #38BDF8;
+
+    position: relative;
+    padding: 65px clamp(18px, 4vw, 60px) 75px;
+    overflow: hidden;
+}
+
+/* Individual discipline colors */
+
+.photography-stats {
+    --discipline-accent: #38BDF8;
+}
+
+.videography-stats {
+    --discipline-accent: #A855F7;
+}
+
+.projects-stats {
+    --discipline-accent: #FF6600;
+}
+
+/* Heading and accent line */
+
+.discipline-heading {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 42px;
+}
+
+.discipline-label {
+    color: var(--discipline-accent);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+}
+
+.discipline-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        var(--discipline-accent),
+        rgba(255, 255, 255, 0.08) 75%,
+        transparent
+    );
+    opacity: 0.65;
+}
+
+/* Four-column grid */
+
+.discipline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Individual statistics */
+
+.discipline-stat {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 12px 28px;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.discipline-stat:first-child {
+    padding-left: 0;
+    border-left: none;
+}
+
+.discipline-stat:last-child {
+    padding-right: 0;
+}
+
+/* Reveal animation */
+
+.discipline-stats.is-visible .discipline-stat {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.discipline-stats.is-visible .discipline-stat:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.discipline-stats.is-visible .discipline-stat:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.discipline-stats.is-visible .discipline-stat:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+.discipline-stats.is-visible .discipline-stat:nth-child(4) {
+    transition-delay: 0.36s;
+}
+
+/* Animated numbers */
+
+.discipline-number {
+    display: block;
+    margin-bottom: 12px;
+
+    color: var(--white, #F5F5F5);
+    font-family: "Michroma", sans-serif;
+    font-size: clamp(1.8rem, 3.6vw, 3.4rem);
+    line-height: 1.3;
+    letter-spacing: -0.055em;
+
+    transition: color 0.25s ease;
+}
+
+/* Accent color on hover */
+
+.discipline-stat:hover .discipline-number {
+    color: var(--discipline-accent);
+}
+
+/* Descriptions */
+
+.discipline-description {
+    color: var(--text-muted, #9299A2);
+    font-family: "Rajdhani", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+/* Tablet layout */
+
+@media (max-width: 800px) {
+    .discipline-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 32px;
+    }
+
+    .discipline-stat {
+        padding: 12px 22px;
+    }
+
+    .discipline-stat:nth-child(odd) {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .discipline-stat:nth-child(even) {
+        padding-right: 0;
+    }
+}
+
+/* Mobile layout */
+
+@media (max-width: 420px) {
+    .discipline-stats {
+        padding-top: 45px;
+        padding-bottom: 55px;
+    }
+
+    .discipline-heading {
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .discipline-label {
+        font-size: 0.65rem;
+    }
+
+    .discipline-number {
+        font-size: clamp(1.5rem, 7vw, 2.2rem);
+    }
+
+    .discipline-description {
+        font-size: 0.8rem;
+    }
+
+    .discipline-stat {
+        padding-right: 12px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .discipline-stat,
+    .discipline-number {
+        transition: none;
+    }
+
+    .discipline-stat {
+        opacity: 1;
+        transform: none;
+    }
+}
     @media (max-width: 1250px) {
       .brand { min-width: 245px; padding: 0 20px; font-size: 14px; }
       .nav-link { padding: 0 12px; font-size: 10px; }
@@ -521,6 +761,154 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
+/* =================================
+   THREE-COLUMN STATS OVERVIEW
+================================= */
+
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+
+    padding: 65px clamp(18px, 4vw, 60px) 75px;
+    align-items: stretch;
+}
+
+/* Each category column */
+
+.stats-overview .discipline-stats {
+    min-width: 0;
+    padding: 20px 28px;
+    overflow: visible;
+}
+
+/* Vertical separators */
+
+.stats-overview .discipline-stats + .discipline-stats {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Center the category heading */
+
+.stats-overview .discipline-heading {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.stats-overview .discipline-label {
+    text-align: center;
+    white-space: normal;
+}
+
+/* Make the accent line shorter and centered */
+
+.stats-overview .discipline-line {
+    flex: 0 0 36px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--discipline-accent);
+    opacity: 0.85;
+}
+
+/* Two-by-two stats grid inside each column */
+
+.stats-overview .discipline-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 12px;
+}
+
+/* Center individual statistics */
+
+.stats-overview .discipline-stat {
+    align-items: center;
+    text-align: center;
+
+    padding: 8px 4px;
+    border-left: none;
+}
+
+/* Center the numbers */
+
+.stats-overview .discipline-number {
+    font-size: clamp(1.5rem, 2.4vw, 2.5rem);
+    margin-bottom: 10px;
+}
+
+/* Keep descriptions readable */
+
+.stats-overview .discipline-description {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+/* Tablet: keep three columns, reduce spacing */
+
+@media (max-width: 900px) {
+    .stats-overview {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .stats-overview .discipline-stats {
+        padding: 18px 14px;
+    }
+
+    .stats-overview .discipline-heading {
+        min-height: 48px;
+        margin-bottom: 25px;
+    }
+
+    .stats-overview .discipline-label {
+        font-size: 0.65rem;
+    }
+
+    .stats-overview .discipline-number {
+        font-size: clamp(1.3rem, 2.8vw, 2rem);
+    }
+
+    .stats-overview .discipline-description {
+        font-size: 0.75rem;
+    }
+}
+
+/* Mobile: stack the categories vertically */
+
+@media (max-width: 600px) {
+    .stats-overview {
+        grid-template-columns: 1fr;
+        padding: 35px 22px;
+    }
+
+    .stats-overview .discipline-stats {
+        padding: 35px 0;
+    }
+
+    .stats-overview .discipline-stats + .discipline-stats {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stats-overview .discipline-heading {
+        margin-bottom: 30px;
+    }
+
+    .stats-overview .discipline-grid {
+        gap: 25px 15px;
+    }
+
+    .stats-overview .discipline-number {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+
+    .stats-overview .discipline-description {
+        font-size: 0.85rem;
+    }
+}
   </style>
 </head>
 
@@ -606,8 +994,101 @@
 
     </section>
 
+<!-- By the Numbers -->
+<section class="discipline-stats photography-stats" id="photography-stats">
+    <div class="discipline-heading">
+        <span class="discipline-label">// 01 — PHOTOGRAPHY</span>
+        <div class="discipline-line"></div>
+    </div>
+
+    <div class="discipline-grid">
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="100" data-suffix="+">0</span>
+            <span class="discipline-description">Photos Captured</span>
+        </div>
+
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="10" data-suffix="+">0</span>
+            <span class="discipline-description">Shoots Completed</span>
+        </div>
+
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="5" data-suffix="+">0</span>
+            <span class="discipline-description">Locations Explored</span>
+        </div>
+
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="3" data-suffix="+">0</span>
+            <span class="discipline-description">Years Photographing</span>
+        </div>
+    </div>
+</section>
 
 
+<!-- ==============================
+     VIDEOGRAPHY STATS
+================================= -->
+<section class="discipline-stats videography-stats" id="videography-stats">
+    <div class="discipline-heading">
+        <span class="discipline-label">// 02 — VIDEOGRAPHY</span>
+        <div class="discipline-line"></div>
+    </div>
+
+    <div class="discipline-grid">
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="10" data-suffix="+">0</span>
+            <span class="discipline-description">Videos Produced</span>
+        </div>
+
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="100" data-suffix="+">0</span>
+            <span class="discipline-description">Hours Editing</span>
+        </div>
+
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="5" data-suffix="+">0</span>
+            <span class="discipline-description">Projects Completed</span>
+        </div>
+
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="4" data-suffix="K">0</span>
+            <span class="discipline-description">Creative Resolution</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============================
+     PROJECTS STATS
+================================= -->
+<section class="discipline-stats projects-stats" id="projects-stats">
+    <div class="discipline-heading">
+        <span class="discipline-label">// 03 — PROJECTS</span>
+        <div class="discipline-line"></div>
+    </div>
+
+    <div class="discipline-grid">
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="5" data-suffix="+">0</span>
+            <span class="discipline-description">Years in Robotics</span>
+        </div>
+
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="5000" data-suffix="+">0</span>
+            <span class="discipline-description">Hours in CAD</span>
+        </div>
+
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="3" data-suffix="rd">0</span>
+            <span class="discipline-description">World Championship Design</span>
+        </div>
+
+        <div class="discipline-stat">
+            <span class="discipline-number" data-target="4" data-suffix="">0</span>
+            <span class="discipline-description">Creative Disciplines</span>
+        </div>
+    </div>
+</section>
     <section class="featured" id="featured" aria-labelledby="featured-title">
       <div class="featured-intro">
         <p class="section-kicker">Featured</p>
@@ -650,5 +1131,84 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".discipline-stats");
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    sections.forEach(section => {
+        const numbers = section.querySelectorAll(".discipline-number");
+        let hasAnimated = false;
+
+        function animateSection() {
+            if (hasAnimated) return;
+            hasAnimated = true;
+
+            section.classList.add("is-visible");
+
+            numbers.forEach((number, index) => {
+                const target = Number(number.dataset.target);
+                const suffix = number.dataset.suffix || "";
+
+                if (!Number.isFinite(target)) return;
+
+                if (reducedMotion) {
+                    number.textContent =
+                        target.toLocaleString("en-US") + suffix;
+                    return;
+                }
+
+                const duration = 1500;
+                const delay = index * 120;
+                const startTime = performance.now() + delay;
+
+                function updateCount(now) {
+                    if (now < startTime) {
+                        requestAnimationFrame(updateCount);
+                        return;
+                    }
+
+                    const progress = Math.min(
+                        (now - startTime) / duration,
+                        1
+                    );
+
+                    // Smooth ease-out
+                    const eased = 1 - Math.pow(1 - progress, 4);
+                    const current = Math.round(target * eased);
+
+                    number.textContent =
+                        current.toLocaleString("en-US") + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    }
+                }
+
+                requestAnimationFrame(updateCount);
+            });
+        }
+
+        if (reducedMotion) {
+            animateSection();
+            return;
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            if (entries.some(entry => entry.isIntersecting)) {
+                animateSection();
+                observer.disconnect();
+            }
+        }, {
+            threshold: 0.2
+        });
+
+        observer.observe(section);
+    });
+});
+</script>
 </body>
 </html>

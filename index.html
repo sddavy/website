@@ -59,6 +59,33 @@
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(12px);
     }
+    .header-logo {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+  
+      width: 72px;
+      min-height: 54px;
+      margin-left: 12px;
+      padding: 8px 18px;
+  
+      border-left: 1px solid var(--line);
+      text-decoration: none;
+    }
+    
+    .header-logo img {
+      display: block;
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    
+    .header-logo:hover img {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
     .brand {
       display: flex;
       align-items: center;
@@ -124,9 +151,6 @@
     .photography { --accent: var(--blue); }
     .videography { --accent: var(--purple); }
     .projects { --accent: var(--orange); }
-    .lights { --accent: var(--green); }
-    .robotics { --accent: var(--maroon); }
-    .flight { --accent: var(--cyan); }
     .about { --accent: var(--muted); }
 
     main { max-width: 1600px; margin: 0 auto; padding: 0 4.1%; }
@@ -510,20 +534,25 @@
 
 <body>
   <span id="top" class="top-anchor" aria-hidden="true"></span>
-  <header class="site-header">
+  
+<header class="site-header">
     <a class="brand" href="#top" aria-label="Samuel Davy home">
-      <span class="brand-mark" aria-hidden="true"><span></span></span>
-      <span>samuel-davy.pages.dev</span>
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span>samuel-davy.pages.dev</span>
     </a>
+
     <nav class="nav" aria-label="Main navigation">
-      <a class="nav-link photography" href="#categories">Photography</a>
-      <a class="nav-link videography" href="#categories">Videography</a>
-      <a class="nav-link projects" href="#categories">Projects</a>
-
-      <a class="nav-link about" href="#about">About</a>
+        <a class="nav-link photography" href="#categories">Photography</a>
+        <a class="nav-link videography" href="#categories">Videography</a>
+        <a class="nav-link projects" href="#categories">Projects</a>
+        <a class="nav-link about" href="#about">About</a>
     </nav>
-  </header>
 
+    <a class="header-logo" href="#top" aria-label="Back to homepage">
+        <img src="logo.png" alt="Samuel Davy logo">
+    </a>
+</header>
+  
 <main>
     <section class="hero" aria-labelledby="page-title">
 
@@ -596,7 +625,7 @@
         <p class="section-kicker">Featured</p>
         <h2 id="featured-title">Recent Work</h2>
         <p>A few highlights from my latest projects, photos, and videos. Check out the different sections to see more.</p>
-        <a class="outline-link" href="#categories">Explore all <span aria-hidden="true">⟶</span></a>
+       
       </div>
 
       <div class="work-grid">

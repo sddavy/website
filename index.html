@@ -761,154 +761,7 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
-/* =================================
-   THREE-COLUMN STATS OVERVIEW
-================================= */
 
-.stats-overview {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
-
-    padding: 65px clamp(18px, 4vw, 60px) 75px;
-    align-items: stretch;
-}
-
-/* Each category column */
-
-.stats-overview .discipline-stats {
-    min-width: 0;
-    padding: 20px 28px;
-    overflow: visible;
-}
-
-/* Vertical separators */
-
-.stats-overview .discipline-stats + .discipline-stats {
-    border-left: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-/* Center the category heading */
-
-.stats-overview .discipline-heading {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 35px;
-}
-
-.stats-overview .discipline-label {
-    text-align: center;
-    white-space: normal;
-}
-
-/* Make the accent line shorter and centered */
-
-.stats-overview .discipline-line {
-    flex: 0 0 36px;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--discipline-accent);
-    opacity: 0.85;
-}
-
-/* Two-by-two stats grid inside each column */
-
-.stats-overview .discipline-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px 12px;
-}
-
-/* Center individual statistics */
-
-.stats-overview .discipline-stat {
-    align-items: center;
-    text-align: center;
-
-    padding: 8px 4px;
-    border-left: none;
-}
-
-/* Center the numbers */
-
-.stats-overview .discipline-number {
-    font-size: clamp(1.5rem, 2.4vw, 2.5rem);
-    margin-bottom: 10px;
-}
-
-/* Keep descriptions readable */
-
-.stats-overview .discipline-description {
-    font-size: 0.82rem;
-    line-height: 1.5;
-    text-align: center;
-    overflow-wrap: anywhere;
-}
-
-/* Tablet: keep three columns, reduce spacing */
-
-@media (max-width: 900px) {
-    .stats-overview {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .stats-overview .discipline-stats {
-        padding: 18px 14px;
-    }
-
-    .stats-overview .discipline-heading {
-        min-height: 48px;
-        margin-bottom: 25px;
-    }
-
-    .stats-overview .discipline-label {
-        font-size: 0.65rem;
-    }
-
-    .stats-overview .discipline-number {
-        font-size: clamp(1.3rem, 2.8vw, 2rem);
-    }
-
-    .stats-overview .discipline-description {
-        font-size: 0.75rem;
-    }
-}
-
-/* Mobile: stack the categories vertically */
-
-@media (max-width: 600px) {
-    .stats-overview {
-        grid-template-columns: 1fr;
-        padding: 35px 22px;
-    }
-
-    .stats-overview .discipline-stats {
-        padding: 35px 0;
-    }
-
-    .stats-overview .discipline-stats + .discipline-stats {
-        border-left: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .stats-overview .discipline-heading {
-        margin-bottom: 30px;
-    }
-
-    .stats-overview .discipline-grid {
-        gap: 25px 15px;
-    }
-
-    .stats-overview .discipline-number {
-        font-size: clamp(1.8rem, 7vw, 2.5rem);
-    }
-
-    .stats-overview .discipline-description {
-        font-size: 0.85rem;
-    }
-}
   </style>
 </head>
 
@@ -970,125 +823,32 @@
     <section class="category-grid" id="categories" aria-label="Portfolio categories">
       <a class="category-card photography" href="#featured">
         <div class="card-visual">
-          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy">
+          <img src="photography.png" alt="" loading="lazy">
           <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 10h6l2-3h8l2 3h6v17H4z"/><circle cx="16" cy="18" r="5.5"/></svg>
         </div>
-        <h2>Photography</h2><p>Landscapes, automotive, and more.</p><span class="card-arrow" aria-hidden="true">⟶</span>
+        <h2>Photography</h2><p>Photos of cars, products, events, people, and more.</p><span class="card-arrow" aria-hidden="true">⟶</span>
       </a>
 
       <a class="category-card videography" href="#featured">
         <div class="card-visual">
-          <img src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy">
+          <img src="videography.png" alt="" loading="lazy">
           <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="8" width="19" height="16" rx="2"/><path d="m22 13 7-4v14l-7-4z"/></svg>
         </div>
-        <h2>Videography</h2><p>Cinematic edits, events, and behind the scenes.</p><span class="card-arrow" aria-hidden="true">⟶</span>
+        <h2>Videography</h2><p>Cinematic videos, short films, and general video editing.</p><span class="card-arrow" aria-hidden="true">⟶</span>
       </a>
 
       <a class="category-card projects" href="#featured">
         <div class="card-visual">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=75" alt="" loading="lazy">
+          <img src="projects.png" alt="" loading="lazy">
           <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="16" cy="16" r="5"/><path d="m13 3 1-2h4l1 2 3 2 3-1 3 4-2 3v4l2 3-3 4-3-1-3 2-1 3h-4l-1-3-3-2-3 1-3-4 2-3v-4L4 8l3-4 3 1z"/></svg>
         </div>
-        <h2>Projects</h2><p>Custom builds, electronics, and engineering.</p><span class="card-arrow" aria-hidden="true">⟶</span>
+        <h2>Projects</h2><p>Competitive robotics, flight simulation, and personal engineering projects.</p><span class="card-arrow" aria-hidden="true">⟶</span>
       </a>
 
     </section>
 
-<!-- By the Numbers -->
-<section class="discipline-stats photography-stats" id="photography-stats">
-    <div class="discipline-heading">
-        <span class="discipline-label">// 01 — PHOTOGRAPHY</span>
-        <div class="discipline-line"></div>
-    </div>
-
-    <div class="discipline-grid">
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="100" data-suffix="+">0</span>
-            <span class="discipline-description">Photos Captured</span>
-        </div>
-
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="10" data-suffix="+">0</span>
-            <span class="discipline-description">Shoots Completed</span>
-        </div>
-
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="5" data-suffix="+">0</span>
-            <span class="discipline-description">Locations Explored</span>
-        </div>
-
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="3" data-suffix="+">0</span>
-            <span class="discipline-description">Years Photographing</span>
-        </div>
-    </div>
-</section>
 
 
-<!-- ==============================
-     VIDEOGRAPHY STATS
-================================= -->
-<section class="discipline-stats videography-stats" id="videography-stats">
-    <div class="discipline-heading">
-        <span class="discipline-label">// 02 — VIDEOGRAPHY</span>
-        <div class="discipline-line"></div>
-    </div>
-
-    <div class="discipline-grid">
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="10" data-suffix="+">0</span>
-            <span class="discipline-description">Videos Produced</span>
-        </div>
-
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="100" data-suffix="+">0</span>
-            <span class="discipline-description">Hours Editing</span>
-        </div>
-
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="5" data-suffix="+">0</span>
-            <span class="discipline-description">Projects Completed</span>
-        </div>
-
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="4" data-suffix="K">0</span>
-            <span class="discipline-description">Creative Resolution</span>
-        </div>
-    </div>
-</section>
-
-
-<!-- ==============================
-     PROJECTS STATS
-================================= -->
-<section class="discipline-stats projects-stats" id="projects-stats">
-    <div class="discipline-heading">
-        <span class="discipline-label">// 03 — PROJECTS</span>
-        <div class="discipline-line"></div>
-    </div>
-
-    <div class="discipline-grid">
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="5" data-suffix="+">0</span>
-            <span class="discipline-description">Years in Robotics</span>
-        </div>
-
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="5000" data-suffix="+">0</span>
-            <span class="discipline-description">Hours in CAD</span>
-        </div>
-
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="3" data-suffix="rd">0</span>
-            <span class="discipline-description">World Championship Design</span>
-        </div>
-
-        <div class="discipline-stat">
-            <span class="discipline-number" data-target="4" data-suffix="">0</span>
-            <span class="discipline-description">Creative Disciplines</span>
-        </div>
-    </div>
-</section>
     <section class="featured" id="featured" aria-labelledby="featured-title">
       <div class="featured-intro">
         <p class="section-kicker">Featured</p>
@@ -1123,6 +883,8 @@
     </section>
   </main>
 
+
+
   <a class="site-footer" href="#top" aria-label="Back to top">
     <span>© <span id="year"></span> Samuel Davy</span>
     <span class="back-top">Back to top ↑</span>
@@ -1131,84 +893,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".discipline-stats");
 
-    const reducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    sections.forEach(section => {
-        const numbers = section.querySelectorAll(".discipline-number");
-        let hasAnimated = false;
-
-        function animateSection() {
-            if (hasAnimated) return;
-            hasAnimated = true;
-
-            section.classList.add("is-visible");
-
-            numbers.forEach((number, index) => {
-                const target = Number(number.dataset.target);
-                const suffix = number.dataset.suffix || "";
-
-                if (!Number.isFinite(target)) return;
-
-                if (reducedMotion) {
-                    number.textContent =
-                        target.toLocaleString("en-US") + suffix;
-                    return;
-                }
-
-                const duration = 1500;
-                const delay = index * 120;
-                const startTime = performance.now() + delay;
-
-                function updateCount(now) {
-                    if (now < startTime) {
-                        requestAnimationFrame(updateCount);
-                        return;
-                    }
-
-                    const progress = Math.min(
-                        (now - startTime) / duration,
-                        1
-                    );
-
-                    // Smooth ease-out
-                    const eased = 1 - Math.pow(1 - progress, 4);
-                    const current = Math.round(target * eased);
-
-                    number.textContent =
-                        current.toLocaleString("en-US") + suffix;
-
-                    if (progress < 1) {
-                        requestAnimationFrame(updateCount);
-                    }
-                }
-
-                requestAnimationFrame(updateCount);
-            });
-        }
-
-        if (reducedMotion) {
-            animateSection();
-            return;
-        }
-
-        const observer = new IntersectionObserver(entries => {
-            if (entries.some(entry => entry.isIntersecting)) {
-                animateSection();
-                observer.disconnect();
-            }
-        }, {
-            threshold: 0.2
-        });
-
-        observer.observe(section);
-    });
-});
-</script>
 </body>
 </html>

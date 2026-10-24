@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -100,26 +100,18 @@
       letter-spacing: .035em;
       white-space: nowrap;
     }
-    .brand-mark {
-      width: 17px;
-      height: 18px;
-      border: 2px solid var(--white);
-      position: relative;
-      display: inline-block;
-      transform: rotate(0deg);
+    .brand-logo {
+      display: block;
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
-    .brand-mark::before, .brand-mark::after {
-      content: "";
-      position: absolute;
-      background: var(--black);
-    }
-    .brand-mark::before { width: 7px; height: 5px; top: -3px; left: 4px; }
-    .brand-mark::after { height: 7px; width: 5px; right: -3px; top: 4px; }
-    .brand-mark span {
-      position: absolute;
-      width: 5px; height: 5px;
-      background: var(--titanium);
-      left: 4px; top: 4px;
+
+    .brand:hover .brand-logo {
+      transform: scale(1.08);
+      opacity: 0.85;
     }
     .nav {
       display: flex;
@@ -537,7 +529,7 @@
   
 <header class="site-header">
     <a class="brand" href="#top" aria-label="Samuel Davy home">
-        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <img src="logo.png" alt="" class="brand-logo">
         <span>samuel-davy.pages.dev</span>
     </a>
 
@@ -547,10 +539,6 @@
         <a class="nav-link projects" href="#categories">Projects</a>
         <a class="nav-link about" href="#about">About</a>
     </nav>
-
-    <a class="header-logo" href="#top" aria-label="Back to homepage">
-        <img src="logo.png" alt="Samuel Davy logo">
-    </a>
 </header>
   
 <main>
@@ -664,4 +652,3 @@
   </script>
 </body>
 </html>
-
